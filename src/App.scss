@@ -1,0 +1,56 @@
+@import 'main';
+@import url('https://fonts.googleapis.com/css2?family=Abel&display=swap');
+
+$background-color: #121212;
+$primary-color:yellow;
+$secondary-color:#ffffff;
+$logo-font : 'Abel' , sans-serif;
+$fade-in-time:3s;
+$fade-in-animation:fadeIn linear $fade-in-time;
+body{
+  background-color: $background-color;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 100vw;
+  min-height: 100vh;
+}
+#App{
+  color: $primary-color;
+  font-family: $logo-font;
+  font-size: 64px;
+  letter-spacing: 20px;
+}
+.fade-in-text {
+  display: inline-block;
+  animation: $fade-in-animation;
+  -webkit-animation:$fade-in-animation;
+  -moz-animation: $fade-in-animation;
+  -o-animation:$fade-in-animation;
+  -ms-animation:$fade-in-animation;
+}
+
+@keyframes fadeIn {
+  0% {opacity:0;}
+  100% {opacity:1;}
+}
+
+@-moz-keyframes fadeIn {
+  0% {opacity:0;}
+  100% {opacity:1;}
+}
+
+@-webkit-keyframes fadeIn {
+  0% {opacity:0;}
+  100% {opacity:1;}
+}
+
+@-o-keyframes fadeIn {
+  0% {opacity:0;}
+  100% {opacity:1;}
+}
+
+@-ms-keyframes fadeIn {
+  0% {opacity:0;}
+  100% {opacity:1;}
+}
