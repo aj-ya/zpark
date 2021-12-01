@@ -38,7 +38,7 @@ export default class VehicleState extends React.Component{
         //if not dummy.add case case for dummy.
         console.log(`./${vehicleG.Name.split(' ').join('')}.avif`)
         let vehicleImg=images(`./${vehicleG.Name.split(' ').join('')}.avif`).default;
-        console.log(vehicleImg);
+        //console.log(vehicleImg);
         document.getElementsByClassName('wrapper')[0].style.background=`url(${vehicleImg}) no-repeat 100%`;
     }
     render(){
