@@ -2,3 +2,21 @@ $background-color: #121212;
 $primary-color:yellow;
 $secondary-color:#ffffff;
 $logo-font : 'Abel' , sans-serif;
+
+.btn-logout.btn-pushable{
+    width:100px;
+    font-size:18px;
+    padding:0;
+    border-radius:10px;
+    top:20px;
+    right:20px;
+    position: absolute;
+    .btn-front{
+        text-align: center;
+        padding: 6px 10px;
+        border-radius: 10px;
+    }
+}
+.ind-vehicle.btn-pushable{
+    min-width:240px;
+}

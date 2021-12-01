@@ -1,63 +1,31 @@
 import React from 'react';
 import { useNavigate } from 'react-router';
-const appStyle = {
-  display: 'flex'
-};
-
-const formStyle = {
-  margin: 'auto',
-  padding: '10px',
-  border: '1px solid #c9c9c9',
-  borderRadius: '5px',
-  background: '#f5f5f5',
-  width: '300px',
-  display: 'block'
-};
-
-const labelStyle = {
-  margin: '10px 0 0 0',
-  fontFamily: 'Arial, Helvetica, sans-serif',
-  fontSize: '15px',
-};
-
-const inputStyle = {
-  margin: '5px 0 0 0',
-  padding: '5px',
-  border: '1px solid #bfbfbf',
-  borderRadius: '3px',
-  boxSizing: 'border-box',
-  width: '100%'
-};
-
-const submitStyle = {
-  margin: '15px 0 10px 0',
-  padding: '3px 5px',
-  border: '1px solid #efffff',
-  borderRadius: '10px',
-  background: 'yellow',
-  width: '100%',
-  height: '50px',
-  fontSize: '26px',
-  color: '#121212',
-  display: 'block',
-};
+import ReCaptcha from './ReCaptcha';
 const pStyle={
-  'textAlign':'right',
-  'fontSize':'14px',
+  textAlign:'right',
+  fontSize:'12px',
+  color:'#9b9b9b',
 }
-const Field = React.forwardRef(({ label, type }, ref) => {
-  return (
-    <div>
-      <label style={labelStyle} >{label}</label>
-      <input ref={ref} type={type} style={inputStyle} className="auth-input" />
+const Field = React.forwardRef(({label, type,id, classes}, ref) => {
+  let idf= id || 'form__field-'+label;
+  let classesf= 'form__field '+ (classes || label); 
+    return (
+      <div className="form__group field">
+      <input name={label} ref={ref} type={type} className={classesf} id={idf} placeholder={label}/>
+      <label htmlFor={label} className="form__label">{label}:</label>
     </div>
-  );
+    );
 });
+
+function onChange(value) {
+  console.log('Captcha value:', value);
+}
 
 const Form = ({ onSubmit }) => {
   const usernameRef = React.useRef();
   const passwordRef = React.useRef();
-  const confirmpasswordRef = React.useRef();
+  const recaptchaRef = React.useRef(); 
+  //const confirmpasswordRef = React.useRef();
   const emailRef = React.useRef();
   const vehicleNumberRef = React.useRef();
   const handleSubmit = e => {
@@ -66,26 +34,27 @@ const Form = ({ onSubmit }) => {
       username: usernameRef.current.value,
       password: passwordRef.current.value,
       email:emailRef.current.value,
-      checkpassword:confirmpasswordRef.current.value,
+      recaptcha:recaptchaRef.current.value,
       vehicleNumber:vehicleNumberRef.current.value
     };
     onSubmit(data);
   };
   return (
-    <form style={formStyle} onSubmit={handleSubmit} >
-      <Field ref={usernameRef} label="Choose a username:" type="text" />
+    <form className='auth-form' onSubmit={handleSubmit} >
+      <Field ref={usernameRef} label="Username" type="text" />
       <p style ={pStyle} id="err-user" className="err"></p>
       <Field ref={emailRef} label="Email" type="email" />
       <p style ={pStyle} id="err-email" className="err"></p>
-      <Field ref={passwordRef} label="Choose a password:" type="password" />
+      <Field ref={passwordRef} label="Password" type="password" />
       <p style ={pStyle} id="err-pass" className="err"></p>
-      <Field ref={confirmpasswordRef} label="Retype the password:" type="password" />
-      <p style ={pStyle} id="err-check" className="err"></p>
-      <Field ref={vehicleNumberRef} label="Vehicle Number:" type="text" />
+      {/*<Field ref={confirmpasswordRef} label="ConfirmPass" type="password" />
+      <p style ={pStyle} id="err-check" className="err"></p>*/}
+      <Field ref={vehicleNumberRef} label="Vehicle Number" type="text" />
       <p style ={pStyle} id="err-vehicle" className="err"></p>
-      <div>
-        <button style={submitStyle} type="submit">Submit</button>
-      </div>
+      {ReCaptcha(recaptchaRef,onChange)}
+      <div className='auth-btn-wrapper'>
+          <button className='btn btn-pushable auth-btn' type="submit" ><span className='btn-front'>Sign Up!</span></button>
+        </div>
     </form>
   );
 };
@@ -98,8 +67,8 @@ const SignUp = () => {
       const re = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
       return re.test(String(email).toLowerCase());
     }
-    let chngRed = Array.from(document.getElementsByClassName('auth-input'));
-    chngRed.forEach((data1) => { if (data1.value === '') data1.style.border = '2px solid red'; else data1.style.border = '1px solid #bfbfbf' })
+    let chngRed = Array.from(document.getElementsByClassName('form__field'));
+    chngRed.forEach((data1) => { if (data1.value === '') data1.style.borderBottom = '2px solid red'; else data1.style.borderBottom = '2px solid #9b9b9b' })
     var p = data.password,
       errors = false;
     if (data.email === '') {
@@ -125,7 +94,6 @@ const SignUp = () => {
       //if(!valid){
       //errors.push("Choose another username.")
     }
-    if (data.vehicleNumberRef)
     if (p.length < 8) {
       document.getElementById('err-pass').innerHTML = "Your password must be at least 8 characters";
       errors = true;
@@ -138,10 +106,10 @@ const SignUp = () => {
       document.getElementById('err-pass').innerHTML = "Your password must contain at least one digit.";
       errors = true;
     }
-    if (p !== data.checkpassword) {
-      document.getElementById('err-check').innerHTML = "Your passwords dont match";
-      errors = true;
-    }
+    // if (p !== data.checkpassword) {
+    //   document.getElementById('err-check').innerHTML = "Your passwords dont match";
+    //   errors = true;
+    // }
     if(!data.vehicleNumber){
       document.getElementById('err-vehicle').innerHTML = "This Field is Mandatory.";
     }
@@ -151,7 +119,7 @@ const SignUp = () => {
     }
   }
 return (
-  <div style={appStyle}>
+  <div className='wrapper'>
     <Form onSubmit={handleSubmit} />
   </div>
 );

@@ -1,3 +1,53 @@
-#mainCaptcha{
-    background: url(./captcha_bg.jpeg) no-repeat;
+.auth-input{
+    margin: 5px 0 10px 0;
+    padding: 10px; 
+    border:  none;
+    border-radius: 20px;
+    box-sizing: border-box;
+    width: 100%;
+    height: 40px;
+    background:#cdc727;
+    outline: none;
+    &:active{
+        border: 1px solid #7f7e19;
+    }
+    &#mainCaptcha{
+        background: url(./captcha_bg.jpeg) no-repeat;
+        pointer-events:'none';
+        width: unset;
+        color:rgba(0,0,0,80%);
+        text-align: center;
+
+    }
+}
+#captcha-wrapper{
+    display: flex;
+    min-width: 100%;
+    #refresh{
+        align-self: flex-end;
+        margin-left: auto;
+        margin-right: 0px;
+        width:unset;
+    }
+}
+.auth-btn-wrapper{
+    margin-top: 10px;
+    display: flex;
+    justify-content: center;
+}
+
+.auth-form{
+    margin: auto;
+    padding: 10px;
+    //border: 1px solid #7f7e19;
+    border-radius: 5px;
+    //background:#cdc727;
+    width: 300px;
+    display: block;
+    .auth-label{
+        font-size: 20px;
+        margin-left: 15px;
+        font-weight: bolder;
+        color: whitesmoke;
+    }
 }

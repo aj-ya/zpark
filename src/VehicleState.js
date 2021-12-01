@@ -1,43 +1,49 @@
 import React from "react";
-import { useLocation,Link} from 'react-router-dom'
-
-let contStyle={
-    'display':'inline-flex',
-    'flexDirection':'column',
-    'justifyContent':'center',
-    'alignItems':'center',
-}
-let modelStyle={
-    'color':'yellow',
-    'textAlign':'center',
-}
-let chargingbtnStyle={
-    'height':'80px',
-}
-let imgStyle={
-    'width':'300px',
-    'height':'300px',
+import { useLocation} from 'react-router-dom'
+import LogoutBtn from "./LogoutBtn";
+import { useState } from 'react';
+const images = require.context('../public/backgrounds', true);
+var vehicleG;
+function ReturnVehicle(){
+    const location = useLocation();
+    const vehicle = location.state?location.state.vehicle:{Name:'Dummmy',Charge:20,charging:false};
+    return vehicle;
 }
 function VehicleCard(){
-        const location = useLocation();
-        const vehicle = location.state?location.state.vehicle:{Name:'Dummmy',Charge:20,charging:false};
+
+        const [buttonText, setButtonText] = useState("Check Status");
+        const [vehicleObj, setVehicleObj] = useState(ReturnVehicle());
+        vehicleG=vehicleObj;
         return(
-            <div style={contStyle}>
-                <h1 style={modelStyle}>{vehicle.Name}</h1>
-                {/**/}
-                <div style={imgStyle}><img src=" " alt={vehicle.Name}></img></div>
-                <div style={{'color':'white',}}>Operational Score: {vehicle.Charge}%</div>
-                <button style={chargingbtnStyle}onClick={()=>{
+            <div className='wrapper'>
+                <h1>{vehicleObj.Name}</h1>
+                {/*
+                <div style={imgStyle}><img src=" " alt={vehicle.Name}></img></div>*/}
+                <div>Operational Score: {vehicleObj.Charge}%</div>
+                <button className='btn btn-pushable btn-charging' onClick={()=>{
                     //!charging and update in db
-                }}>{vehicle.charging?'Already':'Start'} Charging</button>
+                    vehicleObj.charging=!vehicleObj.charging;
+                    let charging=vehicleObj.charging;
+                    setVehicleObj(vehicleObj);
+                    charging
+                    ? setButtonText("Stop Charging")
+                    : setButtonText("Start Charging");
+                }}><span className='btn-front' id='btn-charging'>{buttonText}</span></button>
             </div>
         )
     }
 
 export default class VehicleState extends React.Component{
+    componentDidMount(){
+        //if not dummy.add case case for dummy.
+        console.log(`./${vehicleG.Name.split(' ').join('')}.avif`)
+        let vehicleImg=images(`./${vehicleG.Name.split(' ').join('')}.avif`).default;
+        console.log(vehicleImg);
+        document.getElementsByClassName('wrapper')[0].style.background=`url(${vehicleImg}) no-repeat 100%`;
+    }
     render(){
-        return(<div>
-            <Link to='/'><button style={{width:'100px',fontSize:'20px',padding:'0',height:'30px',borderRadius:'10px',top:'20px',right:'20px',position:'absolute'}} onClick={()=>{window.localStorage.removeItem('username')}}>Logout</button></Link>
+        return(<div className='wrapper'>
+            <LogoutBtn />
             <VehicleCard /></div>
         );
     }

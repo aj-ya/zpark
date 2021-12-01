@@ -1,13 +1,11 @@
-@import 'main';
 @import url('https://fonts.googleapis.com/css2?family=Abel&display=swap');
-
-$background-color: #121212;
+$background-color: 	#282828;
 $primary-color:yellow;
 $secondary-color:#ffffff;
 $logo-font : 'Abel' , sans-serif;
 $fade-in-time:3s;
 $fade-in-animation:fadeIn linear $fade-in-time;
-body{
+.wrapper{
   background-color: $background-color;
   display: inline-flex;
   align-items: center;
@@ -15,21 +13,19 @@ body{
   min-width: 100vw;
   min-height: 100vh;
 }
-#App{
-  color: $primary-color;
-  font-family: $logo-font;
-  font-size: 64px;
-  letter-spacing: 20px;
-}
-.fade-in-text {
-  display: inline-block;
+.fade-in-out {
+  display: inline-flex;
+  justify-content: center;
   animation: $fade-in-animation;
   -webkit-animation:$fade-in-animation;
   -moz-animation: $fade-in-animation;
   -o-animation:$fade-in-animation;
   -ms-animation:$fade-in-animation;
+    img{
+    width: 80%;
+    height: 80%;
+    }
 }
-
 @keyframes fadeIn {
   0% {opacity:0;}
   100% {opacity:1;}

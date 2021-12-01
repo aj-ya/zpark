@@ -1,11 +1,7 @@
 import react from "react";
 import { Link } from "react-router-dom";
-const buttonStyles={
-    'background':'yellow',
-    'width':'80%',
-    'height':'10%',
-    'margin':'20px auto 20px auto',
-}
+import LogoutBtn from "./LogoutBtn";
+import './main.scss'
 
 var cars = [{ Name: 'Tesla Model S', Charge: 20, Charging: true }, { Name: 'Tesla Model 3', Charge: 20 ,Charging: true}, { Name: 'Tesla Model X', Charge: 20,Charging: true }, { Name: 'Tesla Model Y', Charge: 20,Charging: true }];
 function VehicleTile(vehicle) {
@@ -13,9 +9,9 @@ function VehicleTile(vehicle) {
         <Link
 to='/VehicleState'
 state={{vehicle:vehicle}} key={vehicle.Name}
-style={{'textDecoration':'none'}}
+className='Link'
 >
-<button style={buttonStyles}>{vehicle.Name}</button>
+<button className='btn-pushable ind-vehicle'><span className='btn-front'>{vehicle.Name}</span></button>
 </Link>
     );
 }
@@ -34,6 +30,9 @@ export default class Home extends react.Component {
         this.vehicles = cars;
     }
     render() {
-        return (<div><Link to='/'><button style={{width:'100px',fontSize:'20px',padding:'0',height:'30px',borderRadius:'10px',top:'20px',right:'20px',position:'absolute'}} onClick={()=>{window.localStorage.removeItem('username')}}>Logout</button></Link><div style={{'diplay':'inline-flex','flexDirection':'column','width':'300px','justifyContent':'center','alignItems':'center'}}>{AllVehicles(this.vehicles)}</div></div>);
+        return (<div className='wrapper'>
+            <LogoutBtn/>
+            <div className='vehicle-box'>{AllVehicles(this.vehicles)}</div>
+            </div>);
     }
 }

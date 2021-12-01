@@ -20,9 +20,7 @@ class App extends React.Component {
   render() {
     return this.state.redirect
       ? <NavigateLog isLoggedIn={this.state.loggedIn} />
-      :     <h1 id="App" className="fade-in-text">
-      ZPARK
-    </h1>
+      :     <div className='wrapper'><div id="App" className="fade-in-out"><img src='zpark-start.png' alt='logo'/></div></div>
   }
 }
 export default App;
