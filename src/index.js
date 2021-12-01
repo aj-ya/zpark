@@ -11,7 +11,7 @@ import VehicleState from './VehicleState';
 import {BrowserRouter,Routes,Route} from 'react-router-dom'
 ReactDOM.render(
   <React.StrictMode>
-    <BrowserRouter>
+    <BrowserRouter basename='zpark/'>
     <Routes>
       <Route exact path="/SignIn" element={<SignIn/>}/>
       <Route exact path="/SignUp" element={<SignUp />}/>
