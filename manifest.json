@@ -2,7 +2,7 @@
     "short_name":"Zpark",
     "name":"Zpark",
     "icons":[{
-        "src":"/favicon.png",
+        "src":"./favicon.png",
         "type":"image/png",
         "sizes":"1024x1024"
     }
