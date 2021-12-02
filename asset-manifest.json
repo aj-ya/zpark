@@ -1,8 +1,8 @@
 {
   "files": {
-    "main.css": "/zpark/static/css/main.75b35515.chunk.css",
-    "main.js": "/zpark/static/js/main.a26e3b28.chunk.js",
-    "main.js.map": "/zpark/static/js/main.a26e3b28.chunk.js.map",
+    "main.css": "/zpark/static/css/main.4adcb8f3.chunk.css",
+    "main.js": "/zpark/static/js/main.73ece09e.chunk.js",
+    "main.js.map": "/zpark/static/js/main.73ece09e.chunk.js.map",
     "runtime-main.js": "/zpark/static/js/runtime-main.1ed7a737.js",
     "runtime-main.js.map": "/zpark/static/js/runtime-main.1ed7a737.js.map",
     "static/js/2.30bdbfe8.chunk.js": "/zpark/static/js/2.30bdbfe8.chunk.js",
@@ -10,9 +10,9 @@
     "static/js/3.5e8c5aa3.chunk.js": "/zpark/static/js/3.5e8c5aa3.chunk.js",
     "static/js/3.5e8c5aa3.chunk.js.map": "/zpark/static/js/3.5e8c5aa3.chunk.js.map",
     "index.html": "/zpark/index.html",
-    "static/css/main.75b35515.chunk.css.map": "/zpark/static/css/main.75b35515.chunk.css.map",
+    "static/css/main.4adcb8f3.chunk.css.map": "/zpark/static/css/main.4adcb8f3.chunk.css.map",
     "static/js/2.30bdbfe8.chunk.js.LICENSE.txt": "/zpark/static/js/2.30bdbfe8.chunk.js.LICENSE.txt",
-    "static/js/main.a26e3b28.chunk.js.LICENSE.txt": "/zpark/static/js/main.a26e3b28.chunk.js.LICENSE.txt",
+    "static/js/main.73ece09e.chunk.js.LICENSE.txt": "/zpark/static/js/main.73ece09e.chunk.js.LICENSE.txt",
     "static/media/TeslaModel3-mobile.avif": "/zpark/static/media/TeslaModel3-mobile.3741891a.avif",
     "static/media/TeslaModel3.avif": "/zpark/static/media/TeslaModel3.fb8732d3.avif",
     "static/media/TeslaModelS-mobile.avif": "/zpark/static/media/TeslaModelS-mobile.866dec0a.avif",
@@ -25,7 +25,7 @@
   "entrypoints": [
     "static/js/runtime-main.1ed7a737.js",
     "static/js/2.30bdbfe8.chunk.js",
-    "static/css/main.75b35515.chunk.css",
-    "static/js/main.a26e3b28.chunk.js"
+    "static/css/main.4adcb8f3.chunk.css",
+    "static/js/main.73ece09e.chunk.js"
   ]
 }
