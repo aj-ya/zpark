@@ -1,6 +1,7 @@
 import React from 'react';
 import { useNavigate } from 'react-router';
 import ReCaptcha from './ReCaptcha';
+import './App.scss'
 const pStyle={
   textAlign:'right',
   fontSize:'12px',

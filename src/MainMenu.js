@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import './mainmenu.scss'
+import './App.scss'
 function  MainMenu() {
         return(<div className='wrapper'>
             <Link className='Link' to="/SignIn"><button className='btn link-btn btn-pushable' id="signin"><span className="btn-front">Sign In!</span></button></Link>

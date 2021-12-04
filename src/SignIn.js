@@ -1,5 +1,5 @@
 import React from 'react';
-import './signin2.scss';
+import './App.scss'
 import ReCaptcha from './ReCaptcha';
 import { useNavigate } from "react-router-dom";
 

@@ -3,6 +3,7 @@ import { useLocation} from 'react-router-dom'
 import LogoutBtn from "./LogoutBtn";
 import { useState } from 'react';
 import Footer from "./Footer";
+import './App.scss'
 const images = require.context('../public/backgrounds', true);
 var vehicleG;
 function ReturnVehicle(){
