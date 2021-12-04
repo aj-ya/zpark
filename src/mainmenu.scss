@@ -68,3 +68,21 @@ $btn-bg-color:#7f7e19;
 .btn-pushable:active .btn-front {
     transform: translateY(-2px);
     }
+.vehicle-card{
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    .card-heading{
+        color: #eceb03;
+        text-shadow:1px 1px #7f7e19;
+    }
+    .op-score{
+        color: #eceb03;
+        text-shadow:1px 1px #7f7e19;
+        #charge-perc{
+            text-shadow:1px 1px $btn-fontcolor; 
+            font-weight: bold;
+        }
+    }
+}

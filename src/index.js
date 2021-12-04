@@ -16,8 +16,8 @@ ReactDOM.render(
       <Route exact path="/SignIn" element={<SignIn/>}/>
       <Route exact path="/SignUp" element={<SignUp />}/>
       <Route exact path="/VehicleState" element={<VehicleState/>}/>
-      <Route path="/Home" element={<Home />}/>
-      <Route path="/MainMenu" element={<MainMenu/>}/>
+      <Route exact path="/Home" element={<Home/>}/>
+      <Route exact path="/MainMenu" element={<MainMenu/>}/>
       <Route path="*"  element={<App/>}/>
     </Routes>
   </BrowserRouter>

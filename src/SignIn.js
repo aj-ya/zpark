@@ -1,6 +1,8 @@
 import React from 'react';
 import './signin2.scss';
 import ReCaptcha from './ReCaptcha';
+import { useNavigate } from "react-router-dom";
+
 const Field = React.forwardRef(({label, type,id, classes}, ref) => {
   let idf= id || 'form__field-'+label;
   let classesf= 'form__field '+ (classes || label); 
@@ -16,6 +18,12 @@ function onChange(value) {
   console.log('Captcha value:', value);
 }
 const Form = ({onSubmit}) => {
+  let navigate=useNavigate();
+  console.log('here')
+  if(window.localStorage.getItem('username')){
+    console.log('here again');
+    navigate('/Home');
+  }
     const usernameRef = React.useRef();
     const passwordRef = React.useRef();
     const recaptchaRef = React.useRef(); 
@@ -49,6 +57,7 @@ const Form = ({onSubmit}) => {
 };
 
 const SignInFunc = () => {
+    const navigate = useNavigate();
     const handleSubmit = data => {
       console.log(data);
       let id_prefix='form__field-'
@@ -74,7 +83,7 @@ const SignInFunc = () => {
       if(count===0)
       {
         window.localStorage.setItem('username',data.username);
-        window.location.href="/Home";
+        navigate('/Home');
       }    
 }
         //if correct

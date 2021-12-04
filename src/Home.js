@@ -1,6 +1,7 @@
 import react from "react";
 import { Link } from "react-router-dom";
 import LogoutBtn from "./LogoutBtn";
+import Footer from "./Footer";
 import './main.scss'
 
 var cars = [{ Name: 'Tesla Model S', Charge: 20, Charging: true }, { Name: 'Tesla Model 3', Charge: 20 ,Charging: true}, { Name: 'Tesla Model X', Charge: 20,Charging: true }, { Name: 'Tesla Model Y', Charge: 20,Charging: true }];
@@ -33,6 +34,7 @@ export default class Home extends react.Component {
         return (<div className='wrapper'>
             <LogoutBtn/>
             <div className='vehicle-box'>{AllVehicles(this.vehicles)}</div>
+            <Footer/>
             </div>);
     }
 }
