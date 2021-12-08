@@ -8,7 +8,7 @@
 </head>
 
 <body>
-    <div class="wrapper"><img src="%PUBLIC_URL%/reload-6x-white.png" class='img' alt="loading image" />
+    <div class="wrapper"><span class='reload'>&#x21bb;</span>
         <h1 class="offline">Please check your internet connection.</h1>
     </div>
 </body>
@@ -36,7 +36,9 @@
         text-align: center;
     }
 
-    .img {
+    .reload {
+        font-family: Lucida Sans Unicode;
+        font-size: 2.5em;
         display: block;
         margin-bottom: 10px;
         animation: rotation 2s infinite linear;
