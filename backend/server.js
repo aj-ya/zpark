@@ -1,51 +1,63 @@
-const express= require('express');
-const bodyParser=require('body-parser');
-const cors=require('cors');
+const mysql = require("mysql");
+const express = require("express");
+const cors = require("cors");
+const bodyParser = require("body-parser");
 
-const app=express();
-app.use(bodyParser.urlencoded({ extended: false }));
+const app = express();
+app.use(bodyParser.urlencoded({extended: true}));
 app.use(cors());
+app.use(express.json());
 
-var mysql = require('mysql');
- 
-// create a connection variable with the required details
-var con = mysql.createConnection({
-  host: "", // ip address of server running mysql
-  user: "", // user name to your mysql database
-  password: "", // corresponding password
-  database: "" // use the specified database
-});
- 
-// make to connection to the database.
-con.connect(function(err) {
-  if (err) throw err;
-  // if connection is successful
- console.log('connection successful');
+const db=mysql.createConnection({
+    host: "database-2.csjknnw5cwlt.ap-south-1.rds.amazonaws.com",
+    port: "3306",
+    user: "admin",
+    password: "adnan27jakati",
+    database: "grepit",
 });
 
+db.connect((err) => {
+    if(err){
+        console.log(err.message);
+        return;
+    }
+    console.log("database connected");
+});
 
+app.get('/get', (req,res) => {
 
-app.get('/',(req,res)=>{
-  res.json('OK');
-})
+    let sql= 'SELECT * FROM adnan';
+    let query = db.query(sql,(err,results) => {
+        if(err) throw err;
 
-app.post('/',(req,res)=>{
-	var {name,rollno} =req.body;
-	var records = [[req.body.name,req.body.rollno]];
-	if(records[0][0]!=null)
-	{
-		con.query("INSERT into student (name,rollno) VALUES ?",[records],function(err,res,fields){
+        var length=results.length;
+        
+        // console.log(length);
+        //console.log(results);
+        res.send(results);
+    });
+});
 
-			if(err) throw err;
+app.post('/insert',(req,res) => {
+    var username = req.body.username;
+    var rfid = req.body.rfid;
+    var car = req.body.car;
+    var charge = req.body.charge;
+    var bal = req.body.bal;
 
-			console.log(res);
-		});
-	}
-	res.json('Form recieved');
+    const sql='INSERT INTO adnan VALUES (?,?,?,?,?)';
+    try{
+        db.query(sql,[rfid,username,car,charge,bal],(err,results) =>{
+            if(err) throw err;
+            console.log(results);
+        });
+    }
+    catch{
+        alert('check you data');
+    }
+    
+});
 
-
-})
-
-app.listen(3001,()=>{
-  console.log("Port 3001");
+app.listen(3001,() => {
+    console.log("port 3001");
 })
