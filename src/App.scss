@@ -317,3 +317,29 @@ $gray: #9b9b9b;
 #form__field-VehicleNumber {
   text-transform: uppercase;
 }
+.table-container{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  #users{
+    border:2px solid $white;
+    tr{
+      td,th{
+      border:1px solid $white;
+      color: $white;
+      padding:10px 15px;
+      text-align: center;
+    }
+    th{
+      font-weight: bold;
+      color: $primary;
+    }
+  }
+  }
+}
+.form-border{
+  padding: 20px;
+  padding-bottom: 0;
+  border:5px solid #333634;
+  border-radius: 5%; 
+}

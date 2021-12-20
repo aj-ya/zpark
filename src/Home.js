@@ -39,7 +39,7 @@ export default class Home extends react.Component {
     const ReturnVehicle = (username) => {
       let resp;
       //resp=>fetch.then()
-      if (username === "ajeya") resp = cars;
+      if (username === "user") resp = cars;
       return resp;
     };
     this.setState({

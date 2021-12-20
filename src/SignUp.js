@@ -2,31 +2,12 @@ import React from "react";
 import { useNavigate } from "react-router";
 import ReCaptcha from "./ReCaptcha";
 import "./App.scss";
+import Field from "./FormTemplate";
 const pStyle = {
   textAlign: "right",
   fontSize: "12px",
   color: "#9b9b9b",
 };
-const Field = React.forwardRef(({ label, type, id, classes }, ref) => {
-  let idf = id || "form__field-" + String(label).split(" ").join("");
-  let classesf = "form__field " + (classes || label);
-  console.log(idf);
-  return (
-    <div className="form__group field">
-      <input
-        name={label}
-        ref={ref}
-        type={type}
-        className={classesf}
-        id={idf}
-        placeholder={label}
-      />
-      <label htmlFor={label} className="form__label">
-        {label}:
-      </label>
-    </div>
-  );
-});
 
 const Form = ({ onSubmit }) => {
   let [captchaVal, setCaptcha] = React.useState("");
@@ -146,7 +127,7 @@ const SignUp = () => {
         if (value === true) count++;
       }
     }
-    if (count !== 0) {
+    if (count === 0) {
       //to database
       //do axios business here
       navigate("/SignIn");

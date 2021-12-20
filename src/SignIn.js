@@ -2,26 +2,7 @@ import React from "react";
 import "./App.scss";
 import ReCaptcha from "./ReCaptcha";
 import { useNavigate } from "react-router-dom";
-
-const Field = React.forwardRef(({ label, type, id, classes }, ref) => {
-  let idf = id || "form__field-" + String(label).split(" ").join("");
-  let classesf = "form__field " + (classes || label);
-  return (
-    <div className="form__group field">
-      <input
-        name={label}
-        ref={ref}
-        type={type}
-        className={classesf}
-        id={idf}
-        placeholder={label}
-      />
-      <label htmlFor={label} className="form__label">
-        {label}:
-      </label>
-    </div>
-  );
-});
+import Field from "./FormTemplate";
 
 const Form = ({ onSubmit }) => {
   let [captchaVal, setCaptcha] = React.useState("");
@@ -60,9 +41,13 @@ const Form = ({ onSubmit }) => {
 };
 const ReturnAuthPair = (username, password) => {
   let resp;
-  const dummyAuthResponse = { username: "ajeya", password: "ajeya" };
+  let dummyAuthResponse = { username: "admin", password: "admin" };
+
   //do axios business here
   //resp=fetch().then();
+  resp = dummyAuthResponse;
+  if (resp.username === username && resp.password === password) return true;
+  dummyAuthResponse = { username: "user", password: "user" };
   resp = dummyAuthResponse;
   if (resp.username === username && resp.password === password) return true;
   return false;
@@ -104,7 +89,8 @@ const SignInFunc = () => {
     if (count === 0) {
       //do axios business here
       window.localStorage.setItem("username", data.username);
-      navigate("/Home");
+      if (data.username === "admin") navigate("/RFID");
+      else navigate("/Home");
     }
   };
   //if correct

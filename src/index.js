@@ -10,6 +10,7 @@ import SignIn from "./SignIn";
 import Home from "./Home";
 import VehicleState from "./VehicleState";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import RFID from "./RFID";
 ReactDOM.render(
   <React.StrictMode>
     <BrowserRouter basename="zpark/">
@@ -19,6 +20,7 @@ ReactDOM.render(
         <Route exact path="/VehicleState" element={<VehicleState />} />
         <Route exact path="/Home" element={<Home />} />
         <Route exact path="/MainMenu" element={<MainMenu />} />
+        <Route exact path="/RFID" element={<RFID />} />
         <Route path="*" element={<App />} />
       </Routes>
     </BrowserRouter>
