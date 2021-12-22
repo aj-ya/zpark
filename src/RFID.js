@@ -85,7 +85,7 @@ function RFID() {
         style={{ marginTop: "25px" }}
         onClick={() => {
           getDetails();
-          if (dispBtn == true) {
+          if (dispBtn === true) {
             document.getElementById("users").style.display = "table";
             document.getElementsByClassName("form-border")[0].style.display =
               "none";
