@@ -1,18 +1,18 @@
 {
   "files": {
     "main.css": "/zpark/static/css/main.070e8b35.chunk.css",
-    "main.js": "/zpark/static/js/main.88ffe297.chunk.js",
-    "main.js.map": "/zpark/static/js/main.88ffe297.chunk.js.map",
-    "runtime-main.js": "/zpark/static/js/runtime-main.7713b334.js",
-    "runtime-main.js.map": "/zpark/static/js/runtime-main.7713b334.js.map",
-    "static/js/2.ab42cf9a.chunk.js": "/zpark/static/js/2.ab42cf9a.chunk.js",
-    "static/js/2.ab42cf9a.chunk.js.map": "/zpark/static/js/2.ab42cf9a.chunk.js.map",
-    "static/js/3.91b73be9.chunk.js": "/zpark/static/js/3.91b73be9.chunk.js",
-    "static/js/3.91b73be9.chunk.js.map": "/zpark/static/js/3.91b73be9.chunk.js.map",
+    "main.js": "/zpark/static/js/main.e1ba50c8.chunk.js",
+    "main.js.map": "/zpark/static/js/main.e1ba50c8.chunk.js.map",
+    "runtime-main.js": "/zpark/static/js/runtime-main.d927c099.js",
+    "runtime-main.js.map": "/zpark/static/js/runtime-main.d927c099.js.map",
+    "static/js/2.78a01271.chunk.js": "/zpark/static/js/2.78a01271.chunk.js",
+    "static/js/2.78a01271.chunk.js.map": "/zpark/static/js/2.78a01271.chunk.js.map",
+    "static/js/3.f64b5633.chunk.js": "/zpark/static/js/3.f64b5633.chunk.js",
+    "static/js/3.f64b5633.chunk.js.map": "/zpark/static/js/3.f64b5633.chunk.js.map",
     "index.html": "/zpark/index.html",
     "static/css/main.070e8b35.chunk.css.map": "/zpark/static/css/main.070e8b35.chunk.css.map",
-    "static/js/2.ab42cf9a.chunk.js.LICENSE.txt": "/zpark/static/js/2.ab42cf9a.chunk.js.LICENSE.txt",
-    "static/js/main.88ffe297.chunk.js.LICENSE.txt": "/zpark/static/js/main.88ffe297.chunk.js.LICENSE.txt",
+    "static/js/2.78a01271.chunk.js.LICENSE.txt": "/zpark/static/js/2.78a01271.chunk.js.LICENSE.txt",
+    "static/js/main.e1ba50c8.chunk.js.LICENSE.txt": "/zpark/static/js/main.e1ba50c8.chunk.js.LICENSE.txt",
     "static/media/TeslaModel3-mobile.avif": "/zpark/static/media/TeslaModel3-mobile.3741891a.avif",
     "static/media/TeslaModel3.avif": "/zpark/static/media/TeslaModel3.fb8732d3.avif",
     "static/media/TeslaModelS-mobile.avif": "/zpark/static/media/TeslaModelS-mobile.866dec0a.avif",
@@ -23,9 +23,9 @@
     "static/media/TeslaModelY.avif": "/zpark/static/media/TeslaModelY.18c83b8c.avif"
   },
   "entrypoints": [
-    "static/js/runtime-main.7713b334.js",
-    "static/js/2.ab42cf9a.chunk.js",
+    "static/js/runtime-main.d927c099.js",
+    "static/js/2.78a01271.chunk.js",
     "static/css/main.070e8b35.chunk.css",
-    "static/js/main.88ffe297.chunk.js"
+    "static/js/main.e1ba50c8.chunk.js"
   ]
 }
